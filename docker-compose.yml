@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  flipt:
+    image: docker.flipt.io/flipt/flipt:latest
+    ports:
+      - 8090:8090
+      - 9000:9000
+    volumes:
+      - ./flipt:/var/opt/flipt
+      - ./flipt/config.yml:/home/flipt/.config/flipt/config.yml

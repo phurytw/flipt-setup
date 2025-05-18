@@ -1,0 +1,41 @@
+log:
+  level: info
+  encoding: console
+
+server:
+  http_port: 8090
+
+storage:
+  type: database
+
+cache:
+  enabled: true
+
+authentication:
+  required: true
+  session:
+    domain: localhost
+  methods:
+    token:
+      enabled: true
+    oidc:
+      enabled: true
+      email_matches:
+        - example@example.com
+      providers:
+        azure:
+          issuer_url: https://login.microsoftonline.com/example/v2.0
+          client_id: example
+          client_secret: example
+          redirect_address: http://localhost:8090
+          scopes:
+            - email
+            - profile
+        google:
+          issuer_url: https://accounts.google.com
+          client_id: example
+          client_secret: example
+          redirect_address: http://localhost:8090
+          scopes:
+            - email
+            - profile
